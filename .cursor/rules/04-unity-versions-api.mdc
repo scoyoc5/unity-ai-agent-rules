@@ -1,0 +1,22 @@
+---
+description: Version-correct Unity API usage for 2022.3 LTS and Unity 6
+globs: **/*.cs
+alwaysApply: false
+---
+# Version-Correct APIs (check ProjectVersion.txt first)
+
+| Topic | 2022.3 LTS | Unity 6 (6000.x) |
+|---|---|---|
+| Rigidbody velocity | `rb.velocity` | `rb.linearVelocity` (`velocity` is obsolete) |
+| Rigidbody drag | `rb.drag`, `rb.angularDrag` | `rb.linearDamping`, `rb.angularDamping` |
+| Rigidbody2D velocity | `rb2d.velocity` | `rb2d.linearVelocity` |
+| Find objects | `FindFirstObjectByType<T>()` / `FindObjectsByType<T>(FindObjectsSortMode.None)` | same (`FindObjectOfType` is obsolete) |
+| Async | Coroutines | Coroutines or `Awaitable` |
+| Pooling | `UnityEngine.Pool.ObjectPool<T>` | same |
+| Text | TextMeshPro package | TextMeshPro (part of uGUI 2.0) |
+
+Rules:
+- Never use the legacy `Input` class (`Input.GetAxis`, `Input.GetKey`) if `com.unity.inputsystem` is in the manifest and Active Input Handling is set to the new system. See `05-input-system.mdc`.
+- Don't use the removed/obsolete `WWW` class or `GUIText`. Use `UnityWebRequest` for HTTP and TextMeshPro or UI Toolkit for text.
+- Don't use `OnGUI` for game UI. It is for debug overlays only.
+- If you don't know whether an API exists in the target version, say so. Don't guess.

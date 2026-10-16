@@ -1,0 +1,24 @@
+---
+description: Core rules for all Unity C# work in this project
+globs:
+alwaysApply: true
+---
+# Unity Core Rules
+
+## Know the project before writing code
+- Read `ProjectSettings/ProjectVersion.txt` for the Unity version (`m_EditorVersion`). Never emit APIs newer than that version.
+- Read `Packages/manifest.json` before using any package API (Input System, TextMeshPro, Cinemachine, URP, Addressables, Netcode). If a package is missing, say so and ask. Do not assume it is installed.
+- Read `docs/PROJECT.md` and `docs/ARCHITECTURE.md` if they exist. Follow their conventions over your defaults.
+- Check for `.asmdef` files. If code goes into an assembly, make sure that assembly references what the code uses.
+
+## Never invent APIs
+- Use only Unity APIs you are certain exist in the project's Unity version. If you are not sure, say "unverified" and link the Scripting API page (https://docs.unity3d.com/ScriptReference/). Don't guess.
+- Common hallucinations to avoid: `GameObject.FindByTag` (real: `GameObject.FindWithTag` / `FindGameObjectsWithTag`), `transform.GetChildByName` (real: `transform.Find`), `Input.GetAction`, `Rigidbody.AddVelocity`, `Vector3.Clamp`, `Destroy(obj, immediate: true)`.
+
+## Complete, compilable output
+- Write complete files with every `using` directive they need, the namespace, and class braces. Don't write `// ...rest unchanged` stubs unless the user asked for a diff.
+- The file name must match the `MonoBehaviour`/`ScriptableObject` class name, or Unity cannot attach it.
+- After editing, run the verification loop in `docs/VERIFY.md` (or ask the user to check the Console) before calling the task done.
+
+## Scope discipline
+- Change only what the task needs. Never delete or rename existing public members, serialized fields, or files without flagging it first. Renaming a serialized field loses inspector data; see `03-serialization.mdc`.

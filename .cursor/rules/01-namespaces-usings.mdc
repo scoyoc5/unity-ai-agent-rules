@@ -1,0 +1,24 @@
+---
+description: Preserve namespaces and using directives in C# edits
+globs: **/*.cs
+alwaysApply: false
+---
+# Namespaces & `using` Preservation
+
+- **Never remove a `using` directive** unless you have checked that nothing in the file uses it. If you're unsure, keep it. An unused using is a warning; a missing one breaks compilation.
+- When you add code, add the `using` lines it needs at the top of the file:
+  - `List<T>`, `Dictionary<K,V>` → `using System.Collections.Generic;`
+  - `IEnumerator` (coroutines) → `using System.Collections;`
+  - LINQ → `using System.Linq;` (avoid it in per-frame code because it allocates)
+  - `ObjectPool<T>` → `using UnityEngine.Pool;`
+  - `SceneManager` → `using UnityEngine.SceneManagement;`
+  - `InputAction`, `Keyboard.current` → `using UnityEngine.InputSystem;`
+  - TextMeshPro → `using TMPro;`
+  - uGUI `Image`, `Button` → `using UnityEngine.UI;`
+  - UI Toolkit → `using UnityEngine.UIElements;`
+  - `NavMeshAgent` → `using UnityEngine.AI;`
+  - `[FormerlySerializedAs]` → `using UnityEngine.Serialization;`
+  - Editor APIs → `using UnityEditor;`, only in an `Editor/` folder or editor asmdef, or wrapped in `#if UNITY_EDITOR`.
+- Keep the file's existing namespace. New files use the project root namespace from `docs/PROJECT.md` (for example `MyGame.Player`).
+- Watch for name clashes: `UnityEngine.Random` vs `System.Random`, and `UnityEngine.Object` vs `System.Object`. When both namespaces are imported, add an alias (`using Random = UnityEngine.Random;`) or use the fully qualified name.
+- Before you finish, list every type in the file that comes from a non-default namespace and confirm its `using` is there.
