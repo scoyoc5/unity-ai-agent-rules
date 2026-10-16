@@ -17,6 +17,13 @@ Works with **Cursor**, **Claude Code**, and any agent that reads `AGENTS.md`. Th
 | `AGENTS.md` | The same guidance for Claude Code, Codex and other agents |
 | `PRIMING_HEADER.md` | Paste at the start of a ChatGPT or Claude chat |
 
+## Quick start (60 seconds)
+```bash
+git clone https://github.com/scoyoc5/unity-ai-agent-rules
+cp -r unity-ai-agent-rules/.cursor unity-ai-agent-rules/AGENTS.md /path/to/YourUnityProject/
+```
+Then ask your agent: *"Add a jump to PlayerController."* It should read `ProjectVersion.txt` first and keep your `using` lines.
+
 ## Install
 1. Copy `.cursor/` and `AGENTS.md` into your Unity project root, next to `Assets/`.
 2. That's it. Cursor picks up the rules automatically. For chat tools, paste `PRIMING_HEADER.md` first.
