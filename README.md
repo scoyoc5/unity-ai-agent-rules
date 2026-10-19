@@ -8,6 +8,13 @@ Cursor rules and an `AGENTS.md` that stop the most common AI coding mistakes in 
 
 Works with **Cursor**, **Claude Code**, and any agent that reads `AGENTS.md`. There's also a paste-in header for ChatGPT and Claude chat.
 
+### Also catches bugs that compile fine
+| AI writes | What breaks | Rule says |
+|---|---|---|
+| `target?.TakeDamage(1)` | MissingReferenceException after `Destroy`. `?.` can't see Unity's "fake null" | Use `target != null` on UnityEngine.Object (full kit) |
+| renames `speed` → `moveSpeed` | Every prefab's tuned value quietly resets | Add `[FormerlySerializedAs("speed")]` (full kit) |
+| `+=` an event in `Start` with no `-=` | Errors after a scene reload | Subscribe in `OnEnable`, unsubscribe in `OnDisable` (full kit) |
+
 ## What's inside
 | File | What it does |
 |---|---|
@@ -45,3 +52,5 @@ Seen an AI invent a Unity API? Open an issue with the fake call and the real one
 
 ## License
 MIT. Not affiliated with or endorsed by Unity Technologies, Anysphere (Cursor), or Anthropic.
+
+<sub>Keywords: cursor rules for unity, .cursorrules unity, claude code unity, CLAUDE.md unity, AGENTS.md unity, chatgpt unity c#, unity 6 linearVelocity, CS0246 AI.</sub>
