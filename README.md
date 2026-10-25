@@ -43,7 +43,7 @@ Then ask your agent: *"Add a jump to PlayerController."* It should read `Project
 | Find objects | `FindFirstObjectByType<T>()` | same (`FindObjectOfType` obsolete) |
 | Async | Coroutines | Coroutines or `Awaitable` |
 
-## Want the full kit?
+## Want the full kit? 🎃 25% off in the itch.io Halloween Sale (Oct 25 – Nov 4)
 The **Unity AI Agent Kit** adds lifecycle, serialization, Input System, performance and test rules, a `CLAUDE.md`, a phased feature-planning workflow with templates, 20 task prompts (controllers, save/load, FSM, inventory, pooling, UI…), and a batchmode compile + EditMode test loop.
 👉 **[Get it on itch.io](https://johnvanscoyoc.itch.io/unity-ai-agent-kit-rules-prompts-workflow-for-cursor-and-claude-code)** ($12 suggested, $9 minimum)
 
