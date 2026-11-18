@@ -18,7 +18,7 @@ alwaysApply: true
 ## Complete, compilable output
 - Write complete files with every `using` directive they need, the namespace, and class braces. Don't write `// ...rest unchanged` stubs unless the user asked for a diff.
 - The file name must match the `MonoBehaviour`/`ScriptableObject` class name, or Unity cannot attach it.
-- After editing, run the verification loop in `docs/VERIFY.md` (or ask the user to check the Console) before calling the task done.
+- After editing, run the verification loop in `docs/VERIFY.md` (or ask the user to check the Console) before calling the task done. If Unity CLI is available and an Editor is running, use `unity recompile`, then `unity logs --console`.
 
 ## Scope discipline
 - Change only what the task needs. Never delete or rename existing public members, serialized fields, or files without flagging it first. Renaming a serialized field loses inspector data; see `03-serialization.mdc`.

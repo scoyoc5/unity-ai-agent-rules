@@ -6,5 +6,6 @@
 - Unity null checks: `== null`, never `?.` / `??` on UnityEngine.Object.
 - Unity 6: `linearVelocity`/`linearDamping`. 2022 LTS: `velocity`/`drag`.
 - Before saying "done", confirm the code compiles.
+- If Unity CLI is available and an Editor is running, use `unity recompile`, then `unity logs --console`.
 
 Full kit (8 rules, CLAUDE.md, phased planning workflow, 20 task prompts, batchmode compile/test loop): https://johnvanscoyoc.itch.io/unity-ai-agent-kit-rules-prompts-workflow-for-cursor-and-claude-code

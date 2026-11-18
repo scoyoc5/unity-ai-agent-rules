@@ -35,6 +35,13 @@ Then ask your agent: *"Add a jump to PlayerController."* It should read `Project
 1. Copy `.cursor/` and `AGENTS.md` into your Unity project root, next to `Assets/`.
 2. That's it. Cursor picks up the rules automatically. For chat tools, paste `PRIMING_HEADER.md` first.
 
+## Use with Unity CLI 1.0
+[Unity CLI 1.0](https://unity.com/the-unity-cli-1.0-is-here) is Unity's official way for AI agents like Claude Code and Codex to drive the Editor. These rules are guardrails that work alongside it: check the project's Unity version, don't invent APIs, and keep existing `using` directives.
+
+After you change scripts, recompile and read the Editor console before calling the work done. With a running Editor (the Unity Pipeline package is required to control it from the CLI), that's `unity recompile`, then `unity logs --console`.
+
+See the [Unity CLI documentation](https://docs.unity.com/en-us/unity-cli).
+
 ## Quick reference: Unity 6 vs 2022.3
 | Topic | 2022.3 LTS | Unity 6 |
 |---|---|---|
