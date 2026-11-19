@@ -1,0 +1,17 @@
+{
+  "name": "unity-ai-agent-rules",
+  "description": "Cursor rules that stop AI from writing broken Unity C#: missing usings, invented APIs, and Unity 6 vs 2022 mixups.",
+  "version": "1.0.0",
+  "author": {
+    "name": "John V"
+  },
+  "repository": "https://github.com/scoyoc5/unity-ai-agent-rules",
+  "license": "MIT",
+  "keywords": [
+    "unity",
+    "csharp",
+    "cursor-rules",
+    "gamedev",
+    "unity6"
+  ]
+}

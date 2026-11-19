@@ -35,6 +35,8 @@ Then ask your agent: *"Add a jump to PlayerController."* It should read `Project
 1. Copy `.cursor/` and `AGENTS.md` into your Unity project root, next to `Assets/`.
 2. That's it. Cursor picks up the rules automatically. For chat tools, paste `PRIMING_HEADER.md` first.
 
+Also installable as a Cursor plugin (`rules/` and `.cursor-plugin/plugin.json`).
+
 ## Use with Unity CLI 1.0
 [Unity CLI 1.0](https://unity.com/the-unity-cli-1.0-is-here) is Unity's official way for AI agents like Claude Code and Codex to drive the Editor. These rules are guardrails that work alongside it: check the project's Unity version, don't invent APIs, and keep existing `using` directives.
 
